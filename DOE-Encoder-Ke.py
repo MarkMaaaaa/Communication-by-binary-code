@@ -59,7 +59,8 @@ class CRC:
         print('{:10}\t{}'.format('reminder:', self.check_code))
         """final output: crc communication code"""
         print('{:10}\t{}'.format('encode:', self.code))
-
+        
+        
 import numpy as np
 import time
 import xlrd
@@ -156,13 +157,24 @@ time_end = time.time()
 time_c= time_end - time_start   #time calculating functions
 
 print('time cost', time_c, 's')
-code = [1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1];
-check = [1, 1, 0, 0, 0, 1, 0, 1];
+code = [1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1]
+check = [1, 1, 0, 0, 0, 1, 0, 1]
 
+str_code = [str(x) for x in code]
+str_check = [str(x) for x in check]
+
+str1 = ''.join(str_code)
+str2 = ''.join(str_check)
+
+int_str1 = int(str1,2);
+int_str2 = int(str2,2);
+
+int(str1,2)
+int(str(code),2)
 
 I = mpimg.imread('D:/Project/DOE/ped.png')
 
-if code == (1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1) & check==(1, 1, 0, 0, 0, 1, 0, 1):
+if int_str1 == 1733 & int_str2==197:
     plt.imshow(I)
     plt.axis('off')
 
