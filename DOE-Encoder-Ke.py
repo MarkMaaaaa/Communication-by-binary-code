@@ -70,7 +70,7 @@ import ast
 import math
 import os
 from openpyxl import load_workbook
-
+import matplotlib.image as mpimg
 
 os.chdir('D:\Project\DOE')
 
@@ -129,35 +129,42 @@ def dtb(num):
 
 
 
-para_1 = int(ast.literal_eval(dtb(abs(P0[0])))*(10**(accuracy)))
-para_2 = int(ast.literal_eval(dtb(abs(P0[1])))*(10**(accuracy)))
-para_3 = int(ast.literal_eval(dtb(abs(P0[2])))*(10**(accuracy)))
-para_4 = int(ast.literal_eval(dtb(abs(P0[3])))*(10**(accuracy)))   
+#para_1 = int(ast.literal_eval(dtb(abs(P0[0])))*(10**(accuracy)))
+#para_2 = int(ast.literal_eval(dtb(abs(P0[1])))*(10**(accuracy)))
+#para_3 = int(ast.literal_eval(dtb(abs(P0[2])))*(10**(accuracy)))
+#para_4 = int(ast.literal_eval(dtb(abs(P0[3])))*(10**(accuracy)))   
 
-p1 = [int(x1) for x1 in str(para_1)]
-p2 = [int(x1) for x1 in str(para_2)]
-p3 = [int(x1) for x1 in str(para_3)]
-p4 = [int(x1) for x1 in str(para_4)]
+#p1 = [int(x1) for x1 in str(para_1)]
+#p2 = [int(x1) for x1 in str(para_2)]
+#p3 = [int(x1) for x1 in str(para_3)]
+#p4 = [int(x1) for x1 in str(para_4)]
 
-
+p1 = [1,1,0]
 #m = np.random.randint(0, 2, 10)
 
 crc_p1 = CRC(p1, 8)
-crc_p2 = CRC(p2, 8)
-crc_p3 = CRC(p3, 8)
-crc_p4 = CRC(p4, 8)
+#crc_p2 = CRC(p2, 8)
+#crc_p3 = CRC(p3, 8)
+#crc_p4 = CRC(p4, 8)
 
 crc_p1.print_format()
-crc_p2.print_format()
-crc_p3.print_format()
-crc_p4.print_format()
+#crc_p2.print_format()
+#crc_p3.print_format()
+#crc_p4.print_format()
 
 time_end = time.time() 
 time_c= time_end - time_start   #time calculating functions
 
 print('time cost', time_c, 's')
+code = [1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1];
+check = [1, 1, 0, 0, 0, 1, 0, 1];
 
 
+I = mpimg.imread('D:/Project/DOE/ped.png')
+
+if code == (1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1) & check==(1, 1, 0, 0, 0, 1, 0, 1):
+    plt.imshow(I)
+    plt.axis('off')
 
 
 
